@@ -1,40 +1,21 @@
-package HW2;
+package HW3;
 
 /** 
- * Реализуйте алгоритм сортировки пузырьком числового массива, результат после каждой итерации запишите в лог-файл.
+ * Пусть дан произвольный список целых чисел. Удалить из него чётные числа.
 */
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.Arrays;
+// import java.util.Arrays;
 
-class task_3 {
-    public static void main(String[] args) {
-        Logger logger = Logger.getLogger(task_3.class.getName ());
-
-        sort(args, logger);
-    }
-
-    
-    public static void sort(String[] args, Logger logger) {
-            int [] mas = {12, 4, 15, 16, 7, 5, 1, 11};
-     
-            boolean isSorted = false;
-            int buf;
-            while(!isSorted) {
-                isSorted = true;
-                for (int i = 0; i < mas.length-1; i++) {
-                    if(mas[i] > mas[i+1]){
-                        isSorted = false;
-     
-                        buf = mas[i];
-                        mas[i] = mas[i+1];
-                        mas[i+1] = buf;
-                    }
-                    System.out.println(Arrays.toString(mas));
-                    logger.log(Level.INFO, Integer.toString(i));
-                }
+class task_2 {
+public static void main(String[] args) {
+    int[] array = {12, 4, 15, 16, 7, 5, 1, 11, 22, 34, 21, 14, 76, 33};
+    StringBuilder result = new StringBuilder();
+    int i;
+    System.out.print("Результат:  [");
+         for (i = 0; i < array.length; i++) {
+             if (array[i] % 2 != 0){
+                 result.append(array[i]+ ", ");
             }
         }
+        System.out.println(result + "]");
 }
-
-
+}

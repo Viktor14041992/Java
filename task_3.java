@@ -1,41 +1,46 @@
-package HW2;
+package HW3;
 /**
- В файле содержится строка с данными:
-[{"фамилия":"Иванов","оценка":"5","предмет":"Математика"}, {"фамилия":"Петрова","оценка":"4","предмет":"Информатика"}, 
-{"фамилия":"Краснов","оценка":"5","предмет":"Физика"}]
-Напишите метод, который разберёт её на составные части и, используя StringBuilder создаст массив строк такого вида:
-Студент Иванов получил 5 по предмету Математика.
-Студент Петрова получил 4 по предмету Информатика.
-Студент Краснов получил 5 по предмету Физика.
+Задан целочисленный список ArrayList. Найти минимальное, максимальное и среднее арифметичское этого списка.
  */
 
-// import java.io.FileWriter;
-// import java.io.IOException;
-import java.io.*;
- 
-class task_1 {
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = null;
-        try {
-            File file = new File("file_3.txt");
+import java.util.ArrayList;
+import java.util.List;
 
-            if(!file.exists())
-               file.createNewFile();
+class task_3 {
 
-            br = new BufferedReader(new FileReader("file_3.txt"));
-            String line;
-            while((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-        }catch (IOException e) {
-                System.out.println("Error:" + e);
-        } finally {
-            try {
-                br.close();
-            } catch(IOException e) {
-                System.out.print("Error:" + e);
-            }
-        }
+public static void main(Integer[] args) {
+    List list = new ArrayList<Integer>();
+    list.add(100);
+    list.add(10);
+    list.add(120);
+    list.add(158);
+    list.add(56);
+    list.add(14);
+
+ System.out.println(list);
+int max;
+for (int i = 0; i< list.size()-1; i++){
+    if (list.get(i) > list.get(i+1)){
+        max = list.get(i);
     }
+    else max = list.get(i+1)
 }
     
+
+int min;
+for (int i = 0; i< list.size()-1; i++){
+    if (list.get(i) < list.get(i+1)){
+        min = list.get(i);
+    }
+    else min = list.get(i+1)
+}
+    
+int average;
+average = (min+max)/2;
+
+System.out.println(list);
+System.out.println(max);
+System.out.println(min);
+System.out.println(average);
+}
+}
